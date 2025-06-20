@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #a7a7a7;
+}
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    
+}
+
+header nav{
+    display: flex;
+    gap: 1rem;
+    border: solid 2px black;
+    padding: .5rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button{
+    display: none;
+}
+/* Slider for the drop menu */
+    .slider{
+    
+    position: absolute;
+    top:0;
+    right:-100%;
+    
+    flex-direction: column;
+    align-items: flex-end;
+    gap:2rem; 
+    min-height: 100vh;
+    width: 10rem;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+
+}
+
+.slider a{
+        border: solid 2px black;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+        height:100px;
+        width:8rem;
+    }
+
+
+/* Animations */
+.slider{
+    transition: right 1s ease;
+    visibility: hidden;
+    opacity:0;
+    
+
+}
+
+
+
+@media (max-width: 768px){
+    header{
+        position: relative;
+    }
+
+    button{
+        position: absolute;
+        top:40%;
+        right: 10%;
+        display: flex ;
+    }
+    header nav{
+        display: none;
+    }
+
+    
+
+    .slider.open{
+        display: flex ;
+        right:0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .slider a{
+        display: flex;
+    }
+
+    .slider.close{
+        
+        right:-100%;
+        
+        opacity:0;
+    }
+}
+
+@media (min-width : 769px){
+    .slider{
+        display: none !important;
+
+    }
+    button{
+        display: none !important;
+    }
+}
